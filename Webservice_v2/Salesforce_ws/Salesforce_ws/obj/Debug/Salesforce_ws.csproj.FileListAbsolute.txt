@@ -1,0 +1,7 @@
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\Webservice_v2\Salesforce_ws\Salesforce_ws\bin\Salesforce_ws.dll.config
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\Webservice_v2\Salesforce_ws\Salesforce_ws\bin\Salesforce_ws.dll
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\Webservice_v2\Salesforce_ws\Salesforce_ws\bin\Salesforce_ws.pdb
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\Webservice_v2\Salesforce_ws\Salesforce_ws\obj\Debug\Salesforce_ws.csproj.CoreCompileInputs.cache
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\Webservice_v2\Salesforce_ws\Salesforce_ws\obj\Debug\Salesforce_ws.dll
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\Webservice_v2\Salesforce_ws\Salesforce_ws\obj\Debug\Salesforce_ws.pdb
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\Webservice_v2\Salesforce_ws\Salesforce_ws\obj\Debug\Salesforce_ws.csprojAssemblyReference.cache

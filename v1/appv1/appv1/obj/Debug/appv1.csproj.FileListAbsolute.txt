@@ -1,0 +1,6 @@
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v1\appv1\appv1\bin\Debug\appv1.exe.config
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v1\appv1\appv1\bin\Debug\appv1.exe
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v1\appv1\appv1\bin\Debug\appv1.pdb
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v1\appv1\appv1\obj\Debug\appv1.csprojResolveAssemblyReference.cache
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v1\appv1\appv1\obj\Debug\appv1.exe
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v1\appv1\appv1\obj\Debug\appv1.pdb

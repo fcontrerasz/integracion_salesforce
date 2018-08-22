@@ -1,0 +1,233 @@
+﻿Installing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Installing service Integracion Salesforce...
+Creating EventLog source Integracion Salesforce in log Application...
+Rolling back assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Restoring event log to previous state for source Integracion Salesforce.
+An exception occurred during the Rollback phase of the System.Diagnostics.EventLogInstaller installer.
+System.Security.SecurityException: The source was not found, but some or all event logs could not be searched.  Inaccessible logs: Security.
+An exception occurred during the Rollback phase of the installation. This exception will be ignored and the rollback will continue. However, the machine might not fully revert to its initial state after the rollback is complete.
+Installing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Installing service Integracion Salesforce...
+Service Integracion Salesforce has been successfully installed.
+Creating EventLog source Integracion Salesforce in log Application...
+Committing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Installing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Installing service Integracion Salesforce...
+Creating EventLog source Integracion Salesforce in log Application...
+Rolling back assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Restoring event log to previous state for source Integracion Salesforce.
+Uninstalling assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Removing EventLog source Integracion Salesforce.
+Service Integracion Salesforce is being removed from the system...
+Service Integracion Salesforce was successfully removed from the system.
+Installing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Installing service Integracion Salesforce...
+Service Integracion Salesforce has been successfully installed.
+Creating EventLog source Integracion Salesforce in log Application...
+Committing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Uninstalling assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Removing EventLog source Integracion Salesforce.
+Service Integracion Salesforce is being removed from the system...
+Service Integracion Salesforce was successfully removed from the system.
+Attempt to stop service Integracion Salesforce.
+Installing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Installing service Integracion Salesforce...
+Service Integracion Salesforce has been successfully installed.
+Creating EventLog source Integracion Salesforce in log Application...
+Committing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Uninstalling assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Removing EventLog source Integracion Salesforce.
+Service Integracion Salesforce is being removed from the system...
+Service Integracion Salesforce was successfully removed from the system.
+Installing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Installing service Integracion Salesforce...
+Service Integracion Salesforce has been successfully installed.
+Creating EventLog source Integracion Salesforce in log Application...
+Committing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Uninstalling assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Removing EventLog source Integracion Salesforce.
+Service Integracion Salesforce is being removed from the system...
+Service Integracion Salesforce was successfully removed from the system.
+Attempt to stop service Integracion Salesforce.
+Installing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Installing service Integracion Salesforce...
+Service Integracion Salesforce has been successfully installed.
+Creating EventLog source Integracion Salesforce in log Application...
+Committing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Uninstalling assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Removing EventLog source Integracion Salesforce.
+Service Integracion Salesforce is being removed from the system...
+Service Integracion Salesforce was successfully removed from the system.
+Installing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Installing service Integración Salesforce...
+Service Integración Salesforce has been successfully installed.
+Creating EventLog source Integración Salesforce in log Application...
+Committing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Uninstalling assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Removing EventLog source Integración Salesforce.
+Service Integración Salesforce is being removed from the system...
+Service Integración Salesforce was successfully removed from the system.
+Installing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Installing service Integración Salesforce...
+Service Integración Salesforce has been successfully installed.
+Creating EventLog source Integración Salesforce in log Application...
+Committing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Uninstalling assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Removing EventLog source Integración Salesforce.
+Service Integración Salesforce is being removed from the system...
+Service Integración Salesforce was successfully removed from the system.
+Installing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Installing service Integración Salesforce...
+Service Integración Salesforce has been successfully installed.
+Creating EventLog source Integración Salesforce in log Application...
+Committing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Uninstalling assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Removing EventLog source Integración Salesforce.
+Service Integración Salesforce is being removed from the system...
+Service Integración Salesforce was successfully removed from the system.
+Installing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Installing service Integración Salesforce...
+Service Integración Salesforce has been successfully installed.
+Creating EventLog source Integración Salesforce in log Application...
+Committing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Uninstalling assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Removing EventLog source Integración Salesforce.
+Service Integración Salesforce is being removed from the system...
+Service Integración Salesforce was successfully removed from the system.
+Installing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+Installing service Integración Salesforce...
+Service Integración Salesforce has been successfully installed.
+Creating EventLog source Integración Salesforce in log Application...
+Committing assembly 'D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.InstallLog
+   assemblypath = D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe

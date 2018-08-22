@@ -1,0 +1,5 @@
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\genera_uniqPC\uniqPC\uniqPC\bin\Debug\uniqPC.exe.config
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\genera_uniqPC\uniqPC\uniqPC\bin\Debug\uniqPC.exe
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\genera_uniqPC\uniqPC\uniqPC\bin\Debug\uniqPC.pdb
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\genera_uniqPC\uniqPC\uniqPC\obj\Debug\uniqPC.exe
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\genera_uniqPC\uniqPC\uniqPC\obj\Debug\uniqPC.pdb

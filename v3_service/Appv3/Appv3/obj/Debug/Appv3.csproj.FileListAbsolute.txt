@@ -1,0 +1,10 @@
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\obj\Debug\Appv3.ProjectInstaller.resources
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\obj\Debug\Appv3.Salesforce.resources
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\obj\Debug\Appv3.csproj.GenerateResource.Cache
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe.config
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.exe
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\bin\Debug\Appv3.pdb
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\obj\Debug\Appv3.exe
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\obj\Debug\Appv3.pdb
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\obj\Debug\Appv3.csprojAssemblyReference.cache
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v3_service\Appv3\Appv3\obj\Debug\Appv3.csproj.CoreCompileInputs.cache
