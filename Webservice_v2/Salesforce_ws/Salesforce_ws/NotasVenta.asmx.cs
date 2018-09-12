@@ -227,7 +227,7 @@ namespace Salesforce_ws
                 conexionBD = new SqlConnection(mistringconx);
                 conexionBD.Open();
                 rdr = null;
-                string sqlinsert = "INSERT INTO [dbo].[Todos_NotasVenta] VALUES ('"+ IdCuenta + "','" + RutCliente + "','" + nombre_vendedor + "','" + Moneda + "'," + Total_neto + "," + Totiva + ",'" + Forma_de_Pago + "','" + Obs_NV + "','" + Obs_Factura + "','" + Obs_GD + "','" + Obs_FAV + "'," + Descto + ",'" + Fecha + "',0,'CREADO DESDE WS')";
+                string sqlinsert = "INSERT INTO [dbo].[Todos_NotasVenta] VALUES ('"+ IdCuenta + "','" + RutCliente + "','" + nombre_vendedor + "','" + Moneda + "'," + Total_neto + "," + Totiva + ",'" + Forma_de_Pago + "','" + Obs_NV + "','" + Obs_Factura + "','" + Obs_GD + "','" + Obs_FAV + "'," + Descto + ",'" + Fecha + "','" + OC_ref + "','" + fecha_OC + "',0,'CREADO DESDE WS')";
                 SqlCommand cmd = new SqlCommand(sqlinsert, conexionBD);
                 rdr = cmd.ExecuteReader();
                 rdr.Close();

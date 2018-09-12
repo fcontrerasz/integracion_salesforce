@@ -1022,13 +1022,48 @@ namespace Appv2
         //            listarNotasVenta();
 
         //[Todos_NotasVenta
+        private static void terminarNV(string IdOpt, string estado)
+        {
+            SqlDataReader rdr2 = null;
+            //conexionBD.Open();
+            try
+            {
+                string sqlinsert = "UPDATE Todos_NotasVenta SET estado_sync = "+ estado + " FROM Todos_NotasVenta INNER JOIN Todos_NV_Productos ON Todos_NotasVenta.IdCuenta = Todos_NV_Productos.IdCuenta WHERE(Todos_NV_Productos.IdOportunidad = '"+ IdOpt + "') ";
+                Console.WriteLine(sqlinsert);
+                SqlCommand cmd = new SqlCommand(sqlinsert, conexionBD);
+                rdr2 = cmd.ExecuteReader();
+                rdr2.Close();
+            }
+            catch (Exception ex)
+            {
+                Exception ex2 = ex;
+                string errorMessage = string.Empty;
+                while (ex2 != null)
+                {
+                    errorMessage += ex2.ToString();
+                    ex2 = ex2.InnerException;
+                }
+                errorDump("ERROR SQL TABLA: NOTAS DE VENTA ID:" + IdOpt + Environment.NewLine + " DESCRIPCION: " + Environment.NewLine + errorMessage + ", FECHA: " + fecha() + Environment.NewLine);
+                Console.Write("---> ERROR: " + errorMessage);
+            }
+
+        }
 
         private static string cambiaEstadoOport(String oppId, String Estado) {
             try
             {
                 string mensj = "";
-                if (Estado == "4") mensj = "Ups! Algo salió mal, debes hacer la Nota de Venta nuevamente.";
-                if (Estado == "5") mensj = "Felicitaciones, tu Nota de venta ha sido facturada y coordinaremos la entrega de los productos.";
+                string cod_t = "";
+                if (Estado == "4")
+                {
+                    mensj = "Ups! Algo salió mal, debes hacer la Nota de Venta nuevamente.";
+                    cod_t = "6";
+                }
+                if (Estado == "5")
+                {
+                    mensj = "Felicitaciones, tu Nota de venta ha sido facturada y coordinaremos la entrega de los productos.";
+                    cod_t = "7";
+                }
                 Opportunity acOport = new Opportunity();
                 acOport.Id = oppId;
                 acOport.StageName = Estado;
@@ -1057,7 +1092,7 @@ namespace Appv2
                 out limite,
                 out updResults
                 );
-
+                terminarNV(oppId, cod_t);
                 return "1|" + oppId;
             }
             catch (Exception e)
