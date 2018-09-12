@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\innexnuevo1.xml" Protocol="file" SourceId="1" />
+    <MetadataSource Address="D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\wsdlinex110918.xml" Protocol="file" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="innexnuevo1.wsdl" MetadataType="Wsdl" ID="dffccd80-1d33-4cac-8987-5c15fde76d5a" SourceId="1" SourceUrl="file:///D:/pend/Proyectos/Torque/Integración Salesforce/Integracion/Demonio/innexnuevo1.xml" />
+    <MetadataFile FileName="wsdlinex110918.wsdl" MetadataType="Wsdl" ID="05c38c5b-aeb6-4b61-88d4-6fdd9ef3ae3b" SourceId="1" SourceUrl="file:///D:/pend/Proyectos/Torque/Integración Salesforce/Integracion/Demonio/wsdlinex110918.xml" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

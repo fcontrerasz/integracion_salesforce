@@ -31,11 +31,14 @@ namespace Appv2
             Console.Write("**************************************************************" + Environment.NewLine);
             FingerPrint maquina = new FingerPrint();
             string makina = maquina.unico;
-            //Console.WriteLine("MAQUINA ES: " + maquina.unico);
+            Console.WriteLine("" + maquina.unico);
+            //Console.ReadKey();
             if (makina != "BFD0-32E6-7C11-952D-7E62-1A49-16DE-D977")
             {
-                string s_msg = "ERROR, EXISTEN CAMBIOS FISICOS O DE S.O EN LA MAQUINA PRINCIPAL, QUE IMPIDEN PROCESAR LA INTEGRACION. COD:" + makina + Environment.NewLine;
+                string s_msg = "ERROR, EXISTEN CAMBIOS FISICOS O DE S.O EN LA MAQUINA PRINCIPAL, QUE IMPIDEN PROCESAR LA INTEGRACION. COD:" + makina + Environment.NewLine;               
                 errorDump(s_msg);
+                Console.WriteLine("EXITE UN ERROR");
+               // Console.ReadKey();
                 Environment.Exit(1);
             } 
 
@@ -257,10 +260,12 @@ namespace Appv2
                     while (rdr.Read())
                     {
                         contador++;
-                        string i_cont = rdr["IdCuenta"].ToString();
-                        int r_cont = string.IsNullOrEmpty(rdr["estado_sync"].ToString()) ? 0 : Convert.ToInt32(rdr["estado_sync"].ToString());
+                        string i_cont = rdr["IdOportunidad"].ToString();
+                        //int r_cont = string.IsNullOrEmpty(rdr["estado_sync"].ToString()) ? 0 : Convert.ToInt32(rdr["estado_sync"].ToString());
+                        string r_cont = rdr["estado_sync"].ToString();
                         string n_cont = rdr["estado_desc"].ToString();
-                        string proc = actualizarNV(i_cont, r_cont, n_cont, false);
+                        string proc = cambiaEstadoOport(i_cont, r_cont);
+                        //string proc = actualizarNV(i_cont, r_cont, n_cont, false);
                         Console.Write("ID_CONTACTO:" + i_cont + " | " + "RESULTADO: " + proc + Environment.NewLine);
                     }
                     Console.Write("TOTAL PROCESADOS: ");
@@ -304,8 +309,12 @@ namespace Appv2
             System.Console.Write("***** PROCESANDO NUEVOS PRODUCTOS ******" + Environment.NewLine);
             limpiarTabla("Todos_Productos");
             listarProductos();
+            //System.Console.Write("***** PROCESANDO NOTAS DE VENTA ******" + Environment.NewLine);
+            //listarNotasVenta();
 
-            System.Console.Write("PROCESO TERMINADO" + Environment.NewLine);
+                    //[Todos_NotasVenta
+
+                    System.Console.Write("PROCESO TERMINADO" + Environment.NewLine);
             string fechadt = Convert.ToString(DateTime.Now.Day) + "-" + Convert.ToString(DateTime.Now.Month) + "-" + Convert.ToString(DateTime.Now.Year);
 
             conexionBD.Close();
@@ -479,7 +488,7 @@ namespace Appv2
             string sqlinsert = "";
             try
             {
-                sqlinsert = " INSERT INTO [dbo].[Todos_Cuentas] ([IDSALESFORCE] ,[NCUENT_NOMBRE] ,[NCUENT_AREA] ,[NCUENT_CAPROB] ,[NCUENT_CUTILIZ],[NCUENT_RAZON] ,[NCUENT_RUT] ,[NCUENT_GIRO] ,[NCUENT_TIPO] ,[NCUENT_ZONA] ,[NCUENT_NAC] ,[NCUENT_DIVISION] ,[NCUENT_FPAGO] ,[NCUENT_DPAGO] ,[NCUENT_DICOM] ,[NCUENT_MOROSIDAD] ,[NCUENT_IMPUTABLE],[NCUENT_ESMATRIZ],[NCUENT_DIRE],[NCUENT_COMUNA],[NCUENT_CIUDAD],[NCUENT_ULTIMAF],[NCUENT_DESP_DIRE],[NCUENT_DESP_CIUDAD],[NCUENT_DESP_COMUNA]) VALUES ('" + id + "' ,'" + nombre + "' ,'" + area + "' ,'" + Convert.ToString(apro) + "' ,'" + Convert.ToString(uti) + "','" + Convert.ToString(razon) + "','" + Convert.ToString(rut) + "','" + Convert.ToString(giro) + "','" + Convert.ToString(tipo) + "','" + Convert.ToString(zona) + "','" + Convert.ToString(nac) + "','" + Convert.ToString(div) + "','" + Convert.ToString(fpago) + "','" + Convert.ToString(dpago) + "','" + Convert.ToString(dicom) + "','" + Convert.ToString(moro) + "','" + Convert.ToString(impu) + "','" + matriz + "','" + dire + "','" + comuna + "','" + ciudad + "','" + fecham + "','" + desp_dire + "','" + desp_ciudad + "','" + desp_comuna + "')";
+                sqlinsert = " INSERT INTO [dbo].[Todos_Cuentas] ([IDSALESFORCE] ,[NCUENT_NOMBRE] ,[NCUENT_AREA] ,[NCUENT_CAPROB] ,[NCUENT_CUTILIZ],[NCUENT_RAZON] ,[NCUENT_RUT] ,[NCUENT_GIRO] ,[NCUENT_TIPO] ,[NCUENT_ZONA] ,[NCUENT_NAC] ,[NCUENT_DIVISION] ,[NCUENT_FPAGO] ,[NCUENT_DPAGO] ,[NCUENT_DICOM] ,[NCUENT_MOROSIDAD] ,[NCUENT_IMPUTABLE],[NCUENT_ESMATRIZ],[NCUENT_DIRE],[NCUENT_COMUNA],[NCUENT_CIUDAD],[NCUENT_ULTIMAF],[NCUENT_DESP_DIRE],[NCUENT_DESP_CIUDAD],[NCUENT_DESP_COMUNA]) VALUES ('" + id + "' ,'" + nombre.Replace("'", "\"") + "' ,'" + area.Replace("'", "\"") + "' ,'" + Convert.ToString(apro) + "' ,'" + Convert.ToString(uti) + "','" + Convert.ToString(razon).Replace("'", "\"") + "','" + Convert.ToString(rut).Replace("'", "\"") + "','" + Convert.ToString(giro).Replace("'", "\"") + "','" + Convert.ToString(tipo).Replace("'", "\"") + "','" + Convert.ToString(zona).Replace("'", "\"") + "','" + Convert.ToString(nac).Replace("'", "\"") + "','" + Convert.ToString(div).Replace("'", "\"") + "','" + Convert.ToString(fpago).Replace("'", "\"") + "','" + Convert.ToString(dpago).Replace("'", "\"") + "','" + Convert.ToString(dicom).Replace("'", "\"") + "','" + Convert.ToString(moro).Replace("'", "\"") + "','" + Convert.ToString(impu) + "','" + matriz + "','" + dire.Replace("'", "\"") + "','" + comuna.Replace("'", "\"") + "','" + ciudad.Replace("'", "\"") + "','" + fecham + "','" + desp_dire.Replace("'", "\"") + "','" + desp_ciudad.Replace("'", "\"") + "','" + desp_comuna.Replace("'", "\"") + "')";
                 Console.WriteLine(sqlinsert);
                 SqlCommand cmd = new SqlCommand(sqlinsert, conexionBD);
                 rdr3 = cmd.ExecuteReader();
@@ -1010,7 +1019,59 @@ namespace Appv2
 
         }
 
+        //            listarNotasVenta();
 
+        //[Todos_NotasVenta
+
+        private static string cambiaEstadoOport(String oppId, String Estado) {
+            try
+            {
+                string mensj = "";
+                if (Estado == "4") mensj = "Ups! Algo salió mal, debes hacer la Nota de Venta nuevamente.";
+                if (Estado == "5") mensj = "Felicitaciones, tu Nota de venta ha sido facturada y coordinaremos la entrega de los productos.";
+                Opportunity acOport = new Opportunity();
+                acOport.Id = oppId;
+                acOport.StageName = Estado;
+                acOport.Estado_de_Errores__c = mensj;
+
+                //SaveResult[] results = client.update(new sObject[] { acOport });
+
+                LimitInfo[] limite = null;
+                SaveResult[] updResults = null;
+
+                client.update(
+                sessionHeader, //sessionheader
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                new sObject[] { acOport },
+                out limite,
+                out updResults
+                );
+
+                return "1|" + oppId;
+            }
+            catch (Exception e)
+            {
+                string error_m = "Error Actualizando la Nota de Venta: " + e.Message + "\n" + e.StackTrace;
+                Console.WriteLine(error_m);
+                errorDump(error_m);
+                return "-1|" + e.Message;
+            
+            }
+
+            }
+
+            
         private static void listarProductos()
         {
             try

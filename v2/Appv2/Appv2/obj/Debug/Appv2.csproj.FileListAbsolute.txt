@@ -5,3 +5,7 @@ D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v2\Appv2\Ap
 D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v2\Appv2\Appv2\obj\Debug\Appv2.pdb
 D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v2\Appv2\Appv2\obj\Debug\Appv2.csprojAssemblyReference.cache
 D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v2\Appv2\Appv2\obj\Debug\Appv2.csproj.CoreCompileInputs.cache
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v2\Appv2\Appv2\bin\Debug\Appv2.exe.manifest
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v2\Appv2\Appv2\bin\Debug\Appv2.application
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v2\Appv2\Appv2\obj\Debug\Appv2.exe.manifest
+D:\pend\Proyectos\Torque\Integración Salesforce\Integracion\Demonio\v2\Appv2\Appv2\obj\Debug\Appv2.application
