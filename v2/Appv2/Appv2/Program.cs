@@ -157,6 +157,7 @@ namespace Appv2
                         string i_cta = rdr["ID_CUENTA"].ToString();
                         string r_cta = string.IsNullOrEmpty(rdr["RUT"].ToString()) ? "" : rdr["RUT"].ToString();
                         string s_cta = string.IsNullOrEmpty(rdr["RAZSOC"].ToString()) ? "" : rdr["RAZSOC"].ToString();
+                        string s_cta2 = string.IsNullOrEmpty(rdr["RAZSOC2"].ToString()) ? "" : rdr["RAZSOC2"].ToString();
                         string d_cta = rdr["DIR"].ToString();
                         string g_cta = rdr["GIRO"].ToString();
                         string co_cta = rdr["COMUNA"].ToString();
@@ -171,9 +172,13 @@ namespace Appv2
                         string c4_cta = rdr["CLASE4"].ToString();
                         double cdu_cta = string.IsNullOrEmpty(rdr["CRED_UTI"].ToString()) ? 0 : Convert.ToDouble(rdr["CRED_UTI"].ToString());
                         int n_cta = string.IsNullOrEmpty(rdr["MOROSID"].ToString()) ? 0 : Convert.ToInt32(rdr["MOROSID"].ToString());
+                        bool prin_cta = string.IsNullOrEmpty(rdr["PRINCIPAL"].ToString()) ? false : true;
+                        string dir2_cta = rdr["DIR2"].ToString();
+                        string comu2_cta = rdr["COMUNA2"].ToString();
+                        string ciu2_cta = rdr["CIUDAD2"].ToString();
                         Console.Write("ID_CUENTAS:" + i_cta + " | " + "RAZON: " + s_cta + " | " + "RUT: " + r_cta + " | " + "FONO: " + f_cta + Environment.NewLine);
                         // Console.ReadLine();
-                        string proc = crearCuenta(i_cta, s_cta, r_cta, f_cta, false);
+                        string proc = crearCuenta(prin_cta, dir2_cta, comu2_cta, ciu2_cta, i_cta, s_cta, s_cta2, r_cta, f_cta, d_cta, g_cta, co_cta, ci_cta, for_cta, dias_cta, cd_cta, c1_cta, c2_cta, c3_cta, c4_cta, cdu_cta, n_cta, false);
                         //string proc = "1";
                         Console.Write("ID_CUENTAS:" + i_cta + " | " + "RESULTADO: " + proc  + Environment.NewLine);
                     }
@@ -274,32 +279,9 @@ namespace Appv2
                     System.Console.BackgroundColor = ConsoleColor.Black;
                     Console.WriteLine("" + Environment.NewLine);
                     rdr.Close();
-                    //conexionBD.Close();
 
-                    /*Console.Write("***** PROCESANDO NOTAS DE VENTA **********" + Environment.NewLine);
-                    conexionBD.Open();
-                    cmd = new SqlCommand();
-                    querym = "SELECT * FROM [ws_salesforce].[dbo].[Productos]";
-                    cmd.CommandTimeout = 0;
-                    cmd.CommandText = querym;
-                    cmd.Connection = conexionBD;
-                    rdr = cmd.ExecuteReader();
-                    while (rdr.Read())
-                    {
-                        contador++;
-                        i_prod = rdr["ID_PRODUCTO"].ToString();
-                        n_prod = rdr["CR_NOMBRE"].ToString();
-                        s_prod = rdr["CR_RAZON"].ToString();
-                        r_prod = rdr["CR_RUT"].ToString();
-                        string proc = crearCuenta(n_prod, s_prod, r_prod);
-                        Console.Write("IDPROD:" + i_prod + " | " + "NOMBRE:" + n_prod + ", RESULTADO: " + proc + Environment.NewLine);
-                    }
-                    Console.Write("NOTAS DE VENTA PROCESADAS: " + contador.ToString() + Environment.NewLine);
-                    rdr.Close();
-                    conexionBD.Close();*/
                     System.Console.BackgroundColor = ConsoleColor.Black;
-         //Console.WriteLine("\n" + enviarEmail("corellana@gildemeister.cl, mguzman@mets.cl, nespinoza@mets.cl, cpalomera@mets.cl, ccontreras@mets.cl", "fcontreras@mets.cl, pmoncada@mets.cl, sgodas@mets.cl", "", "AUTONOMOHYUNDAI - PROCESO DE ENVIO " + fechadt, "EL DIA " + fechadt + " SE LEYERON " + contador.ToString() + " REGISTRO(S) PARA SER PROCESADOS. EN RESUMEN: \r\n\r\n - SE ENVIARON " + totalinternos.ToString() + " MAILS INTERNOS.  \r\n - SE ENVIARON " + totalexternos.ToString() + " MAILS EXTERNOS. \r\n\r\n ERRORES \r\n\r\n - NO SE PUDIERON PROCESAR " + totalsinbuenformato.ToString() + " MAIL(S) POR ERROR DEL FORMATO DEL CORREO DESTINO. \r\n - NO SE PUDO ACTUALIZAR EL ID EN LA TABLA 'DEMONIO_COLA_CONTACTOSWEB' UN TOTAL DE " + totalerrorsql.ToString() + " REGISTROS. \r\n\r\n MAIL ENVIADO EN FORMA AUTOMATICA, FAVOR DE NO CONTESTAR. \r\n\r\n METS S.A"));
-            //Console.ReadLine();
+
             System.Console.Write("***** PROCESANDO NUEVOS CONTACTOS ******" + Environment.NewLine);
             limpiarTabla("Todos_Contactos");
             listarContactos();
@@ -384,6 +366,11 @@ namespace Appv2
             return new string(Enumerable.Repeat(chars, length)
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+
+        //i_cta
+
+
+
         private static void terminar(string tabla, string idx, string nuevo, string estado, string desc)
         {
             SqlDataReader rdr2 = null;
@@ -824,13 +811,33 @@ namespace Appv2
 
         }
 
-        private static string crearCuenta(string id, string n, string s, string r, bool actualiza) {
+        private static string crearCuenta(bool prin_cta, string dir2_cta, string comu2_cta, string ciu2_cta, string i_cta, string s_cta, string s_cta2, string r_cta, string f_cta, string d_cta, string g_cta, string co_cta, string ci_cta, string for_cta, int dias_cta, double cd_cta, string c1_cta, string c2_cta, string c3_cta, string c4_cta, double cdu_cta, int n_cta, bool actualiza) {
 
             //string nombre = RandomString(8);
+            //f_cta = fono
+            //s_cta = razon social
             Account acct = new Account();
-            acct.Name = n;
-            acct.Razon_Social__c = s;
-            acct.Rut__c = r;
+            acct.Name = s_cta2;
+            acct.Razon_Social__c = s_cta;
+            acct.Rut__c = r_cta;
+            acct.BillingStreet = d_cta;
+            acct.Giro__c = g_cta;
+            acct.BillingState = co_cta;
+            acct.BillingCity = ci_cta;
+            acct.Forma_de_pago__c = for_cta;
+            acct.Dias_de_pago__c = dias_cta;
+            acct.Phone = f_cta;
+            acct.Credito_aprobado__c = cd_cta;
+            acct.Division__c = c1_cta;
+            acct.Area_2__c = c2_cta;
+            acct.Nac_o_inter__c = c3_cta;
+            acct.Dicom__c = c4_cta;
+            acct.Credito_utilizado__c = cdu_cta;
+            acct.Morosidad__c = n_cta;
+            acct.Es_matriz__c = prin_cta;
+            acct.ShippingStreet = dir2_cta;
+            acct.ShippingState = comu2_cta;
+            acct.ShippingCity = ciu2_cta;
             acct.CurrencyIsoCode = "CLP";
 
             LimitInfo[] limite = null;
@@ -866,13 +873,13 @@ namespace Appv2
             if (createResults[0].success)
             {
                 string idm = createResults[0].id;
-                terminar("CUENTA", id, idm, "1", "Correcto");
-                return "1|"+id.ToString();
+                terminar("CUENTA", i_cta, idm, "1", "Correcto");
+                return "1|"+ i_cta.ToString();
             }
             else
             {
                 string result = createResults[0].errors[0].message;
-                terminar("CUENTA", id, "", "2", result);
+                terminar("CUENTA", i_cta, "", "2", result);
                 return "-1|" + result;
             }
 
@@ -1054,19 +1061,22 @@ namespace Appv2
             {
                 string mensj = "";
                 string cod_t = "";
+                string nuevo_estado = "";
                 if (Estado == "4")
                 {
-                    mensj = "Ups! Algo salió mal, debes hacer la Nota de Venta nuevamente.";
+                    mensj = "Felicitaciones, tu Nota de venta ha sido facturada y coordinaremos la entrega de los productos.";
                     cod_t = "6";
+                    nuevo_estado = "Cerrada ganada";
                 }
                 if (Estado == "5")
                 {
-                    mensj = "Felicitaciones, tu Nota de venta ha sido facturada y coordinaremos la entrega de los productos.";
+                    mensj = "Ups! Algo salió mal, debes hacer la Nota de Venta nuevamente.";
                     cod_t = "7";
+                    nuevo_estado = "Cerrada perdida";
                 }
                 Opportunity acOport = new Opportunity();
                 acOport.Id = oppId;
-                acOport.StageName = Estado;
+                acOport.StageName = nuevo_estado;
                 acOport.Estado_de_Errores__c = mensj;
 
                 //SaveResult[] results = client.update(new sObject[] { acOport });
