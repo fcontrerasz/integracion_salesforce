@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Salesforce_ws
 {
@@ -132,8 +133,8 @@ namespace Salesforce_ws
                 cmdTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@estado_desc", System.Data.SqlDbType.Text, 250));
                 cmdTest.Parameters["@estado_desc"].Value = "ENVIO DESDE WS";
 
-                cmdTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@numoc", System.Data.SqlDbType.Int, 50));
-                cmdTest.Parameters["@numoc"].Value = Convert.ToInt32(OC_Referencia);
+                cmdTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@numoc", System.Data.SqlDbType.Text, 50));
+                cmdTest.Parameters["@numoc"].Value = OC_Referencia;
 
                 cmdTest.Parameters.Add(new System.Data.SqlClient.SqlParameter("@fecha_oc", System.Data.SqlDbType.Text, 10));
                 cmdTest.Parameters["@fecha_oc"].Value = Fecha_OC;
@@ -150,22 +151,27 @@ namespace Salesforce_ws
                 {
                     Nota.StageName = resx;
                     Nota.IdCuenta = "FALLO";
+                    createDump("fallo la transacción, " + IdOportunidad + ", cod: "+ resx);
                     Respuesta notax = agregarNota(IdOportunidad, IdCuenta, IdPresupuesto, RutCliente, nombre_vendedor, Moneda, Total_neto, Totiva, Forma_de_Pago, Obs_NV, Obs_Factura, Obs_GD, Obs_FAV, Descto, Fecha, OC_Referencia, Fecha_OC, productos, resultadoSQL);
                 }
                 else
                 {
                     string xxx = agregarProductos(IdCuenta, IdOportunidad, productos);
+                    createDump("buena la transacción, " + IdOportunidad + ", agregando productos.... codigo:" + xxx);
                     if (xxx == "OK")
                     {
                         Nota.StageName = resx;
                         Nota.IdCuenta = "OK";
                         Respuesta notax = agregarNota(IdOportunidad, IdCuenta, IdPresupuesto, RutCliente, nombre_vendedor, Moneda, Total_neto, Totiva, Forma_de_Pago, Obs_NV, Obs_Factura, Obs_GD, Obs_FAV, Descto, Fecha, OC_Referencia, Fecha_OC, productos,"0");
+                        createDump("respuesta al agregar nota, " + IdOportunidad + " codigo:" + notax.mensaje);
                     }
                     else {
                         Nota.StageName = 0;
                         Nota.IdCuenta = xxx;
                         Respuesta notax = agregarNota(IdOportunidad, IdCuenta, IdPresupuesto, RutCliente, nombre_vendedor, Moneda, Total_neto, Totiva, Forma_de_Pago, Obs_NV, Obs_Factura, Obs_GD, Obs_FAV, Descto, Fecha, OC_Referencia, Fecha_OC, productos, "-1");
+                        createDump("respuesta al agregar nota, " + IdOportunidad + " codigo:" + notax.mensaje);
                     }
+
                     
                     
                 }
@@ -183,6 +189,8 @@ namespace Salesforce_ws
 
                 Nota.StageName = 0;
                 Nota.IdCuenta = errorMessage;
+
+                createDump("ERROR la transacción, " + IdOportunidad + ", cod: "+ errorMessage);
             }
 
 
@@ -278,6 +286,26 @@ namespace Salesforce_ws
             public float descuento { get; set; }
             public string item { get; set; }
             public DateTime fecha_entrega { get; set; }
+        }
+
+        public static void createDump(string logdata)
+        {
+            string strLogText = logdata;
+            StreamWriter log;
+            string carpeta = Convert.ToString(DateTime.Now.Day) + Convert.ToString(DateTime.Now.Month) + Convert.ToString(DateTime.Now.Year);
+            string archivo = "C:\\Salesforce\\WsSalesforce\\Logs\\log_" + carpeta + ".txt";
+            if (!File.Exists(archivo))
+            {
+                log = new StreamWriter(archivo);
+            }
+            else
+            {
+                log = File.AppendText(archivo);
+            }
+            log.WriteLine(strLogText);
+            log.WriteLine();
+            log.WriteLine();
+            log.Close();
         }
 
         public class Respuesta
