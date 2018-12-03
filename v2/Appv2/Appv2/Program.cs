@@ -68,16 +68,6 @@ namespace Appv2
                     Console.Write(" [OK] " + Environment.NewLine);
                     System.Console.BackgroundColor = ConsoleColor.Black;
                     Console.Write(Environment.NewLine);
-                    /*
-                    System.Console.Write("***** PROCESANDO NUEVAS CUENTAS ******" + Environment.NewLine);
-                    limpiarTabla("Todos_Cuentas");
-                    listarCuentas();
-                    System.Console.Write("***** PROCESANDO NUEVOS CONTACTOS ******" + Environment.NewLine);
-                    limpiarTabla("Todos_Contactos");
-                    listarContactos();
-                    Console.ReadLine();
-                    Environment.Exit(1);
-                    */
                     using (SqlCommand cmd1 = new SqlCommand("sync_cuenta", conexionBD))
                     {
                         cmd1.CommandType = CommandType.StoredProcedure;
@@ -139,8 +129,10 @@ namespace Appv2
                     }
 
 
-
+                    
                     SqlCommand cmd = new SqlCommand();
+                    string querym = "";
+                    /*
                     string querym = "SELECT * FROM [ws_salesforce].[dbo].[listar_cuentas_q]";
                     cmd.CommandTimeout = 0;
                     cmd.CommandText = querym;
@@ -176,9 +168,19 @@ namespace Appv2
                         string dir2_cta = rdr["DIR2"].ToString();
                         string comu2_cta = rdr["COMUNA2"].ToString();
                         string ciu2_cta = rdr["CIUDAD2"].ToString();
-                        Console.Write("ID_CUENTAS:" + i_cta + " | " + "RAZON: " + s_cta + " | " + "RUT: " + r_cta + " | " + "FONO: " + f_cta + Environment.NewLine);
+                        string valor_e = rdr["OUT_ESTADO"].ToString();
+                        bool actual_ = false;
+                        if (valor_e == "0") {
+                            actual_ = false;
+                        }
+                        if (valor_e == "4")
+                        {
+                            actual_ = true;
+                        }
+
+                        Console.Write("ESTADO"+ valor_e + " | ID_CUENTAS:" + i_cta + " | " + "RAZON: " + s_cta + " | " + "RUT: " + r_cta + " | " + "FONO: " + f_cta + " | " + "MOROSIDAD: " + n_cta.ToString() + "MOROSIDAD (SQL) " + rdr["MOROSID"].ToString()  + " | " + "DIAS DE PAGO: " + dias_cta.ToString() + " | " + "CREDITO: " + cdu_cta.ToString() + " | " + "ES PRINCIPAL: " + prin_cta.ToString() + Environment.NewLine);
                         // Console.ReadLine();
-                        string proc = crearCuenta(prin_cta, dir2_cta, comu2_cta, ciu2_cta, i_cta, s_cta, s_cta2, r_cta, f_cta, d_cta, g_cta, co_cta, ci_cta, for_cta, dias_cta, cd_cta, c1_cta, c2_cta, c3_cta, c4_cta, cdu_cta, n_cta, false);
+                        string proc = crearCuenta(prin_cta, dir2_cta, comu2_cta, ciu2_cta, i_cta, s_cta, s_cta2, r_cta, f_cta, d_cta, g_cta, co_cta, ci_cta, for_cta, dias_cta, cd_cta, c1_cta, c2_cta, c3_cta, c4_cta, cdu_cta, n_cta, actual_);
                         //string proc = "1";
                         Console.Write("ID_CUENTAS:" + i_cta + " | " + "RESULTADO: " + proc  + Environment.NewLine);
                     }
@@ -205,10 +207,24 @@ namespace Appv2
                         string r_cont = rdr["RUT"].ToString();
                         string n_cont = rdr["NOMBRE"].ToString();
                         string a_cont = rdr["APELLIDO"].ToString();
+                        string nnom = n_cont + " " + a_cont;
                         string c_cont = rdr["CARGO"].ToString();
                         string f_cont = rdr["FONO"].ToString();
                         string m_cont = rdr["MAIL"].ToString();
-                        string proc = crearContacto(i_cont, n_cont, m_cont, f_cont, false);
+                        string ra_cont = rdr["RAZSOC"].ToString();
+                        string valor_e = rdr["OUT_ESTADO"].ToString();
+                        string id_cuen = rdr["IDCUENTA"].ToString();
+                        bool actual_ = false;
+                        if (valor_e == "0")
+                        {
+                            actual_ = false;
+                        }
+                        if (valor_e == "4")
+                        {
+                            actual_ = true;
+                        }
+                        Console.Write("ESTADO" + valor_e + " | ID_CONTACTO:" + i_cont + Environment.NewLine);
+                        string proc = crearContacto(i_cont, nnom, m_cont, c_cont, f_cont, id_cuen, ra_cont, actual_);
                         Console.Write("ID_CONTACTO:" + i_cont + " | " + "RESULTADO: " + proc + Environment.NewLine);
                     }
                     Console.Write("TOTAL PROCESADOS: ");
@@ -217,9 +233,9 @@ namespace Appv2
                     System.Console.BackgroundColor = ConsoleColor.Black;
                     Console.WriteLine("" + Environment.NewLine);
                     rdr.Close();
-                    conexionBD.Close();
+                    conexionBD.Close();*/
                     Console.Write("***** PROCESANDO PRODUCTOS **********" + Environment.NewLine);
-                    conexionBD.Open();
+                    //conexionBD.Open();
                     cmd = new SqlCommand();
                     querym = "SELECT * FROM [ws_salesforce].[dbo].[listar_productos_q]";
                     cmd.CommandTimeout = 0;
@@ -242,8 +258,19 @@ namespace Appv2
                         double co_prod = string.IsNullOrEmpty(rdr["COSTOREP"].ToString()) ? 0 : Convert.ToDouble(rdr["COSTOREP"].ToString());
                         double fa_prod = string.IsNullOrEmpty(rdr["FACEQUI"].ToString()) ? 0 : Convert.ToDouble(rdr["FACEQUI"].ToString());
                         double q_prod = string.IsNullOrEmpty(rdr["STOCK"].ToString()) ? 0 : Convert.ToDouble(rdr["STOCK"].ToString());
-
-                        string proc = crearProductos(i_prod, n_prod, c_prod, q_prod, p_prod);
+                        // string idprox = string.IsNullOrEmpty(rdr["IDPROD"].ToString()) ? "": rdr["IDPROD"].ToString();
+                        string idprox = "";
+                        string valor_e = rdr["OUT_ESTADO"].ToString();
+                        bool actualpod_ = false;
+                        if (valor_e == "0")
+                        {
+                            actualpod_ = false;
+                        }
+                        if (valor_e == "4")
+                        {
+                            actualpod_ = true;
+                        }
+                        string proc = crearProductos(i_prod, n_prod, c_prod, q_prod, p_prod, idprox, actualpod_);
                         Console.Write("ID_PRODUCTO:" + i_prod + " | " + "RESULTADO: " + proc + Environment.NewLine);
                     }
                     Console.Write("TOTAL PROCESADOS: ");
@@ -375,15 +402,16 @@ namespace Appv2
         {
             SqlDataReader rdr2 = null;
             //conexionBD.Open();
+            desc = desc.Replace("\"", string.Empty).Replace("'", string.Empty);
+            string sqlinsert = "UPDATE " + tabla + "S SET OUT_ESTADO = " + estado + ", OUT_ID = '" + nuevo + "', OUT_MSG = '" + desc + "', OUT_FECHA = GETDATE() WHERE ID_" + tabla + " = " + idx;
             try
             {
-                string sqlinsert = "UPDATE "+tabla+ "S SET OUT_ESTADO = " + estado+ ", OUT_ID = '"+ nuevo + "', OUT_MSG = '" + desc+ "', OUT_FECHA = GETDATE() WHERE ID_" + tabla + " = " + idx;
                 Console.WriteLine(sqlinsert);
-               // Console.ReadLine();
+                // Console.ReadLine();
                 SqlCommand cmd = new SqlCommand(sqlinsert, conexionBD);
                 rdr2 = cmd.ExecuteReader();
                 rdr2.Close();
-               // conexionBD.Close();
+                // conexionBD.Close();
             }
             catch (Exception ex)
             {
@@ -394,7 +422,8 @@ namespace Appv2
                     errorMessage += ex2.ToString();
                     ex2 = ex2.InnerException;
                 }
-                errorDump("ERROR SQL TABLA: "+tabla+" ID:" + idx + Environment.NewLine + " DESCRIPCION: " + Environment.NewLine + errorMessage + ", FECHA: " + fecha() + Environment.NewLine);
+                errorDump("ERROR SQL TABLA: " + tabla + " ID:" + idx + Environment.NewLine + " DESCRIPCION: " + Environment.NewLine + errorMessage + ", FECHA: " + fecha() + Environment.NewLine + "QUERY: " + sqlinsert + Environment.NewLine );
+               // Console.ReadKey();
                 Console.Write("---> ERROR: " + errorMessage);
             }
 
@@ -611,10 +640,12 @@ namespace Appv2
         {
             try {
 
-                string username = "consultor_force@nectia.inexsbx.com";
-                string password = "nectia2020lT2HDj7BFGeAHkmSLqm2cRMu";
+                //string username = "consultor_force@nectia.inexsbx.com";
+                //string password = "nectia2020lT2HDj7BFGeAHkmSLqm2cRMu";
+                string username = "consultor_force@nectia.com.inex";
+                string password = "Nectia2019K2MU6nPNrsMAbzIQ0otbi93N";
 
-                loginClient = new SoapClient();
+                 loginClient = new SoapClient();
 
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 LoginResult lr = loginClient.login(null, username, password);
@@ -712,19 +743,39 @@ namespace Appv2
             return "1|" + id.ToString();
         }
 
-        private static string crearContacto(string id, string n, string c, string t, bool actualiza)
+        private static string crearContacto(string id, string n, string m, string c, string t, string ida, string r, bool actualiza)
         {
 
             Contact acct = new Contact();
             acct.Name = n; //nombre de la cuenta
-            acct.Email = c; //correo
+            acct.Email = m; //correo
+            acct.Title = c; //cargo
             acct.Phone = t; //teléfono
+            acct.AccountId = ida;
 
             LimitInfo[] limite = null;
             SaveResult[] createResults = null;
+            UpsertResult[] upserResults = null;
 
             if (actualiza) {
-                
+                client.update(
+                        sessionHeader, //sessionheader
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        new sObject[] { acct }, //objeto
+                        out limite,
+                        out createResults
+                        );
             }
             else
             {
@@ -747,64 +798,115 @@ namespace Appv2
                         );
 
             }
+
+            
+                if (createResults[0].success)
+                {
+                    string idm = createResults[0].id;
+                    terminar("CONTACTO", id, idm, "1", "Correcto");
+                    return "1|" + id.ToString();
+                }
+                else
+                {
+                    string result = createResults[0].errors[0].message;
+                    terminar("CONTACTO", id, "", "2", result);
+                    return "-1|" + result;
+                }
             
 
-            if (createResults[0].success)
-            {
-                string idm = createResults[0].id;
-                terminar("CONTACTO", id, idm, "1", "Correcto");
-                return "1|" + id.ToString();
-            }
-            else
-            {
-                string result = createResults[0].errors[0].message;
-                terminar("CONTACTO", id, "", "2", result);
-                return "-1|" + result;
-            }
 
         }
 
-        private static string crearProductos(string id, string n, string c, double s, double v)
+        private static string crearProductos(string id, string n, string c, double s, double v, string ida, bool actual)
         {
 
             Product2 acct = new Product2();
             acct.Name = n;
+           // acct.Id = ida;
             acct.ProductCode = c;
             acct.IsActive = true;
             acct.Stock__c = s;
             acct.Costo__c = v;
             acct.CurrencyIsoCode = "CLP";
+            acct.Codigo_de_Producto__c = c;
 
             LimitInfo[] limite = null;
             SaveResult[] createResults = null;
+            UpsertResult[] upserResults = null;
 
-            client.create(
-            sessionHeader, //sessionheader
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            new sObject[] { acct }, //objeto
-            out limite,
-            out createResults
-            );
-
-            if (createResults[0].success)
+            client.upsert(
+             sessionHeader, //sessionheader
+             null,
+             null,
+             null,
+             null,
+             null,
+             null,
+             null,
+             null,
+             null,
+             null,
+             null,
+             null,
+             "Codigo_de_Producto__c",
+             new sObject[] { acct }, //objeto
+             out limite,
+             out upserResults
+             );
+            /*
+            if (actual)
             {
-                string idm = createResults[0].id;
+                client.update(
+                        sessionHeader, //sessionheader
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        new sObject[] { acct }, //objeto
+                        out limite,
+                        out createResults
+                        );
+            }
+            else
+            {
+                client.create(
+                        sessionHeader, //sessionheader
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        new sObject[] { acct }, //objeto
+                        out limite,
+                        out createResults
+                        );
+
+            }*/
+
+
+            if (upserResults[0].success)
+            {
+                string idm = upserResults[0].id;
                 terminar("PRODUCTO", id, idm, "1", "Correcto");
                 return "1|" + id.ToString();
             }
             else
             {
-                string result = createResults[0].errors[0].message;
+                string result = upserResults[0].errors[0].message;
                 terminar("PRODUCTO", id, "", "2", result);
                 return "-1|" + result;
             }
@@ -818,7 +920,7 @@ namespace Appv2
             //s_cta = razon social
             Account acct = new Account();
             acct.Name = s_cta2;
-            acct.Razon_Social__c = s_cta;
+          //  acct.Razon_Social__c = s_cta;
             acct.Rut__c = r_cta;
             acct.BillingStreet = d_cta;
             acct.Giro__c = g_cta;
@@ -834,17 +936,38 @@ namespace Appv2
             acct.Dicom__c = c4_cta;
             acct.Credito_utilizado__c = cdu_cta;
             acct.Morosidad__c = n_cta;
-            acct.Es_matriz__c = prin_cta;
+           // acct.Es_matriz__c = prin_cta;
             acct.ShippingStreet = dir2_cta;
             acct.ShippingState = comu2_cta;
             acct.ShippingCity = ciu2_cta;
             acct.CurrencyIsoCode = "CLP";
 
+
             LimitInfo[] limite = null;
             SaveResult[] createResults = null;
-            //UpsertResult[] upserResults = null;
+            UpsertResult[] upserResults = null;
 
             if (actualiza) {
+
+                client.upsert(
+               sessionHeader, //sessionheader
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                "Rut__c",
+                new sObject[] { acct }, //objeto
+                out limite,
+                out upserResults
+               );
                 
             }
             else
@@ -869,19 +992,37 @@ namespace Appv2
 
             }
 
-
-            if (createResults[0].success)
+            if (actualiza)
             {
-                string idm = createResults[0].id;
-                terminar("CUENTA", i_cta, idm, "1", "Correcto");
-                return "1|"+ i_cta.ToString();
+                if (upserResults[0].success)
+                {
+                    string idm = upserResults[0].id;
+                    terminar("CUENTA", i_cta, idm, "1", "Correcto");
+                    return "1|" + i_cta.ToString();
+                }
+                else
+                {
+                    string result = upserResults[0].errors[0].message;
+                    terminar("CUENTA", i_cta, "", "2", result);
+                    return "-1|" + result;
+                }
             }
             else
             {
-                string result = createResults[0].errors[0].message;
-                terminar("CUENTA", i_cta, "", "2", result);
-                return "-1|" + result;
+                if (createResults[0].success)
+                {
+                    string idm = createResults[0].id;
+                    terminar("CUENTA", i_cta, idm, "1", "Correcto");
+                    return "1|" + i_cta.ToString();
+                }
+                else
+                {
+                    string result = createResults[0].errors[0].message;
+                    terminar("CUENTA", i_cta, "", "2", result);
+                    return "-1|" + result;
+                }
             }
+            
 
         }
 
@@ -991,10 +1132,15 @@ namespace Appv2
                         double dpago = account.Dias_de_pago__c ?? 0;
                         double moro = account.Morosidad__c ?? 0;
                         bool imputa = account.Imputable__c ?? false;
-                        bool esmatriz = account.Es_matriz__c ?? false;
+                        // SE DEBE SOLUCIONAR
+                        //bool esmatriz = account.Es_matriz__c ?? false;
+                        bool esmatriz = false;
                         string fecha = account.LastModifiedDate.Value.ToString("yyyy-MM-dd HH:mm:ss") ?? "";
+                        //ESTO ESTA MALO
+                        //string r_sociax = account.Razon_Social__c;
+                        string r_sociax = "";
 
-                        agregarCuenta(account.Id, fecha, esmatriz, account.BillingStreet, account.BillingCity, account.BillingState, account.Name, account.Area_2__c, c_apro, c_uti, account.Razon_Social__c, account.Rut__c, account.Giro__c, account.Tipo__c, account.Zona__c, account.Nac_o_inter__c, account.Division__c, account.Forma_de_pago__c, dpago , account.Dicom__c, moro, imputa, account.ShippingStreet, account.ShippingCity, account.ShippingState);
+                        agregarCuenta(account.Id, fecha, esmatriz, account.BillingStreet, account.BillingCity, account.BillingState, account.Name, account.Area_2__c, c_apro, c_uti, r_sociax, account.Rut__c, account.Giro__c, account.Tipo__c, account.Zona__c, account.Nac_o_inter__c, account.Division__c, account.Forma_de_pago__c, dpago , account.Dicom__c, moro, imputa, account.ShippingStreet, account.ShippingCity, account.ShippingState);
                     }
                 }
 
