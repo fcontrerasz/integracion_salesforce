@@ -26,16 +26,15 @@ namespace Salesforce_ws
         //public static string mistringconx = "Data Source=localhost\\SQLEXPRESS;MultipleActiveResultSets=true;Initial Catalog=ws_salesforce;Persist Security Info=True;User ID=sa;Password=g4ng4sta";
 
 
-       /* [WebMethod]
-        public Retorno Test()
+       [WebMethod]
+        public Retorno Actualizar(string tipo, string id)
         {
-            
-            Respuesta nota = agregarNota("1","");
+            createDump("LLEGO UNA SOLICITUD DESDE " + tipo + ", cod: " + id);
             Retorno Nota = new Retorno();
-            Nota.StageName = nota.codigo;
-            Nota.IdCuenta = nota.mensaje;
+            Nota.StageName = 1;
+            Nota.IdCuenta = "OK";
             return Nota;
-        }*/
+        }
 
         [WebMethod]
         public Retorno Sincronizar(
@@ -54,6 +53,7 @@ namespace Salesforce_ws
             string Obs_FAV,
             string Obs_NV,
             string Forma_de_Pago,
+            string Correlativo,
             int Totiva,
             string OC_Referencia,
             DateTime Fecha_OC,
@@ -152,7 +152,7 @@ namespace Salesforce_ws
                     Nota.StageName = resx;
                     Nota.IdCuenta = "FALLO";
                     createDump("fallo la transacción, " + IdOportunidad + ", cod: "+ resx);
-                    Respuesta notax = agregarNota(IdOportunidad, IdCuenta, IdPresupuesto, RutCliente, nombre_vendedor, Moneda, Total_neto, Totiva, Forma_de_Pago, Obs_NV, Obs_Factura, Obs_GD, Obs_FAV, Descto, Fecha, OC_Referencia, Fecha_OC, productos, resultadoSQL);
+                    Respuesta notax = agregarNota(Correlativo, IdOportunidad, IdCuenta, IdPresupuesto, RutCliente, nombre_vendedor, Moneda, Total_neto, Totiva, Forma_de_Pago, Obs_NV, Obs_Factura, Obs_GD, Obs_FAV, Descto, Fecha, OC_Referencia, Fecha_OC, productos, resultadoSQL);
                 }
                 else
                 {
@@ -162,13 +162,13 @@ namespace Salesforce_ws
                     {
                         Nota.StageName = resx;
                         Nota.IdCuenta = "OK";
-                        Respuesta notax = agregarNota(IdOportunidad, IdCuenta, IdPresupuesto, RutCliente, nombre_vendedor, Moneda, Total_neto, Totiva, Forma_de_Pago, Obs_NV, Obs_Factura, Obs_GD, Obs_FAV, Descto, Fecha, OC_Referencia, Fecha_OC, productos,"0");
+                        Respuesta notax = agregarNota(Correlativo, IdOportunidad, IdCuenta, IdPresupuesto, RutCliente, nombre_vendedor, Moneda, Total_neto, Totiva, Forma_de_Pago, Obs_NV, Obs_Factura, Obs_GD, Obs_FAV, Descto, Fecha, OC_Referencia, Fecha_OC, productos,"0");
                         createDump("respuesta al agregar nota, " + IdOportunidad + " codigo:" + notax.mensaje);
                     }
                     else {
                         Nota.StageName = 0;
                         Nota.IdCuenta = xxx;
-                        Respuesta notax = agregarNota(IdOportunidad, IdCuenta, IdPresupuesto, RutCliente, nombre_vendedor, Moneda, Total_neto, Totiva, Forma_de_Pago, Obs_NV, Obs_Factura, Obs_GD, Obs_FAV, Descto, Fecha, OC_Referencia, Fecha_OC, productos, "-1");
+                        Respuesta notax = agregarNota(Correlativo, IdOportunidad, IdCuenta, IdPresupuesto, RutCliente, nombre_vendedor, Moneda, Total_neto, Totiva, Forma_de_Pago, Obs_NV, Obs_Factura, Obs_GD, Obs_FAV, Descto, Fecha, OC_Referencia, Fecha_OC, productos, "-1");
                         createDump("respuesta al agregar nota, " + IdOportunidad + " codigo:" + notax.mensaje);
                     }
 
@@ -230,7 +230,7 @@ namespace Salesforce_ws
             return rex;
         }
         //private static Respuesta agregarNota(string IdCuenta, string RutCliente, DateTime FechaDoc, string nombre_vendedor, string apellido_vendedor, string Moneda, double descuento, double Total_neto, string glosa_de_pago, int Totiva, string Forma_de_Pago, string Obs_NV, string Obs_Factura, string Obs_GD, string Obs_FAV, string OC, int Ncodart, string Descripcion, double Cantidad, double Descto, DateTime Fecha)
-        private static Respuesta agregarNota(string IdOportunidad, string IdCuenta, string IdPresupuesto, string RutCliente, string nombre_vendedor, string Moneda, double Total_neto, int Totiva, string Forma_de_Pago, string Obs_NV, string Obs_Factura, string Obs_GD, string Obs_FAV, double Descto, DateTime Fecha, string OC_ref, DateTime fecha_OC, Productos productos, string estado_f)
+        private static Respuesta agregarNota(string Correlativo, string IdOportunidad, string IdCuenta, string IdPresupuesto, string RutCliente, string nombre_vendedor, string Moneda, double Total_neto, int Totiva, string Forma_de_Pago, string Obs_NV, string Obs_Factura, string Obs_GD, string Obs_FAV, double Descto, DateTime Fecha, string OC_ref, DateTime fecha_OC, Productos productos, string estado_f)
         {
             Respuesta rex = new Respuesta();
             try
@@ -238,7 +238,7 @@ namespace Salesforce_ws
                 conexionBD = new SqlConnection(mistringconx);
                 conexionBD.Open();
                 rdr = null;
-                string sqlinsert = "INSERT INTO [dbo].[Todos_NotasVenta] VALUES ('" + IdOportunidad + "','" + IdCuenta + "','" + RutCliente + "','" + nombre_vendedor + "','" + Moneda + "'," + Total_neto + "," + Totiva + ",'" + Forma_de_Pago + "','" + Obs_NV + "','" + Obs_Factura + "','" + Obs_GD + "','" + Obs_FAV + "'," + Descto + ",'" + Fecha + "','" + OC_ref + "','" + fecha_OC + "',"+ estado_f + ",'CREADO DESDE WS')";
+                string sqlinsert = "INSERT INTO [dbo].[Todos_NotasVenta] VALUES ('" + IdOportunidad + "','" + IdCuenta + "','" + RutCliente + "','" + nombre_vendedor + "','" + Moneda + "'," + Total_neto + "," + Totiva + ",'" + Forma_de_Pago + "','" + Obs_NV + "','" + Obs_Factura + "','" + Obs_GD + "','" + Obs_FAV + "'," + Descto + ",'" + Fecha + "','" + OC_ref + "','" + Correlativo + "','" + fecha_OC + "',"+ estado_f + ",'CREADO DESDE WS')";
                 SqlCommand cmd = new SqlCommand(sqlinsert, conexionBD);
                 rdr = cmd.ExecuteReader();
                 rdr.Close();
