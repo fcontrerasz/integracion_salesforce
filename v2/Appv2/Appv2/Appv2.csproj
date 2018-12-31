@@ -231,9 +231,10 @@
     <None Include="Connected Services\sForce\Appv2.sForce.describeSObjectResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\sForce\Appv2.sForce.DescribeSObjectResult.datasource">
+    <None Include="Connected Services\sForce\Appv2.sForce.DescribeSObjectResult1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\sForce\Appv2.sForce.DescribeSObjectResult22.datasource" />
     <None Include="Connected Services\sForce\Appv2.sForce.describeSObjectsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -396,9 +397,10 @@
     <None Include="Connected Services\sForce\Appv2.sForce.retrieveQuickActionTemplatesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\sForce\Appv2.sForce.retrieveResponse.datasource">
+    <None Include="Connected Services\sForce\Appv2.sForce.retrieveResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\sForce\Appv2.sForce.retrieveResponse7777.datasource" />
     <None Include="Connected Services\sForce\Appv2.sForce.SaveResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -441,7 +443,7 @@
     <None Include="Connected Services\sForce\Appv2.sForce.UpsertResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\sForce\wsdlinex_30112018.wsdl" />
+    <None Include="Connected Services\sForce\wsdlinex_26122018.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
